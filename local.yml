@@ -6,6 +6,8 @@
   vars:
     ansible_python_interpreter: /usr/libexec/platform-python
   tasks:
+    - debug: var=TEST1
+
     - name: py platform test
       command: ls /
 
