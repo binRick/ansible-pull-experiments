@@ -1,18 +1,20 @@
 ---
 - name: test playbook
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   connection: local
-  become: no
   vars:
-    ansible_python_interpreter: /usr/bin/python
+    ansible_python_interpreter: /usr/libexec/platform-python
   tasks:
+    - name: py platform test
+      command: ls /
 
     - name: py2 test
-      command: /bin/ps ax
+      command: ls /
       vars:
         ansible_python_interpreter: /usr/bin/python2
+
     - name: py3 test
-      command: /bin/ps axf
+      command: ls /
       vars:
         ansible_python_interpreter: /usr/bin/python3
